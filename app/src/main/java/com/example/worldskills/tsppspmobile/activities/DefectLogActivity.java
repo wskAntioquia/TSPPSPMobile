@@ -75,4 +75,10 @@ public class DefectLogActivity extends AppCompatActivity {
     type.setAdapter(adapter1);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        chronometer.stop();
+    }
 }
