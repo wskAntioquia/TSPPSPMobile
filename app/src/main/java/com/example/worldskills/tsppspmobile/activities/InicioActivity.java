@@ -1,11 +1,9 @@
 package com.example.worldskills.tsppspmobile.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,12 +14,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.worldskills.tsppspmobile.R;
-import com.example.worldskills.tsppspmobile.adapter.MyAdapter;
 import com.example.worldskills.tsppspmobile.data.Constantes;
 import com.example.worldskills.tsppspmobile.data.Datos;
 import com.example.worldskills.tsppspmobile.models.Projecto;
-
-import java.util.ArrayList;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -65,7 +60,17 @@ public class InicioActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int i, long id) {
-                final CharSequence charSequence[]={"Time Log","Defect Log","Project plain Summary"};
+                int codig=cursor.getInt(cursor.getColumnIndex(Constantes._ID));
+                Intent intent=new Intent(getApplicationContext(),MenuActivity.class);
+                intent.putExtra("codigo",codig);
+                startActivity(intent);
+                finish();
+
+
+
+
+
+              /*  final CharSequence charSequence[]={"Time Log","Defect Log","Project plain Summary"};
                 AlertDialog.Builder builder=new AlertDialog.Builder(InicioActivity.this);
                 builder.setTitle("Menu");
                 builder.setItems(charSequence, new DialogInterface.OnClickListener() {
@@ -94,7 +99,7 @@ public class InicioActivity extends AppCompatActivity {
                     }
                 });
                 AlertDialog dialog=builder.create();
-                dialog.show();
+                dialog.show();*/
             }
         });
 
