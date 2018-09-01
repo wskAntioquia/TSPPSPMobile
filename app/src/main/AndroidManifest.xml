@@ -18,8 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TimeLogActivity" />
-        <activity android:name=".activities.DefectLogActivity" />
+        <activity android:name=".activities.TimeLogActivity"
+            android:parentActivityName=".activities.InicioActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+
+        </activity>
+        <activity android:name=".activities.DefectLogActivity"
+            android:parentActivityName=".activities.InicioActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+        </activity>
         <activity
             android:name=".activities.ProjectPlanSummaryActivity"
             android:label="@string/title_activity_project_plan_summary"

@@ -39,6 +39,7 @@ public class TimeLogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_log);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         inicializarElementos();
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
