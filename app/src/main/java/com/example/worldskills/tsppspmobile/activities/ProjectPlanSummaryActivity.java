@@ -174,7 +174,7 @@ public class ProjectPlanSummaryActivity extends AppCompatActivity {
             switch (position){
                 case 0:return "Time in Phase";
                 case 1:return "Defects injected";
-                case 3:return "Defects Removed";
+                case 2:return "Defects Removed";
             }
             return null;
         }
