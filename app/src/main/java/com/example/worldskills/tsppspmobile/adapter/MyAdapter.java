@@ -20,6 +20,7 @@ public class MyAdapter extends BaseAdapter {
         this.projectos = projectos;
     }
 
+
     @Override
     public int getCount() {
         return projectos.size();
