@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".activities.TimeLogActivity"
             android:label="Time Log"
             android:parentActivityName=".activities.InicioActivity"
@@ -29,6 +30,7 @@
                 android:value=".activities.InicioActivity"/>
 
         </activity>
+
         <activity android:name=".activities.DefectLogActivity"
             android:parentActivityName=".activities.InicioActivity"
             android:label="Defect Log"
@@ -42,6 +44,14 @@
             android:label="Project Plan Summary"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".activities.MenuActivity"
+            android:label="Menu"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
