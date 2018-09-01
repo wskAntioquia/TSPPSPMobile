@@ -11,7 +11,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.InicioActivity"
-            android:label="Proyectos"
             android:theme="@style/Inicio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +19,21 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TimeLogActivity"
-            android:label="Time Log"/>
+            android:parentActivityName=".activities.InicioActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+
+        </activity>
         <activity android:name=".activities.DefectLogActivity"
-            android:label="Defect Log"/>
+            android:parentActivityName=".activities.InicioActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.InicioActivity"/>
+        </activity>
         <activity
             android:name=".activities.ProjectPlanSummaryActivity"
-            android:label="Project Plan Summary"
+            android:label="@string/title_activity_project_plan_summary"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

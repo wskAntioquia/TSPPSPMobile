@@ -9,9 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.worldskills.tsppspmobile.R;
 import com.example.worldskills.tsppspmobile.data.Constantes;
+import com.example.worldskills.tsppspmobile.data.Datos;
+import com.example.worldskills.tsppspmobile.models.TimeLog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,6 +29,7 @@ public class TimeLogActivity extends AppCompatActivity {
     EditText descripcion;
     ArrayAdapter<String>adapter;
     Date dateStart,dateStop;
+    Datos datos;
     SimpleDateFormat dateFormat;
     long diferencia;
     int id;
@@ -35,6 +39,7 @@ public class TimeLogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_log);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         inicializarElementos();
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +60,65 @@ public class TimeLogActivity extends AppCompatActivity {
                 hacerCalculoFechas(dateStop,dateStart);
             }
         });
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validarCampos()){
+                    TimeLog timeLog=new TimeLog();
+                    if (spinner.getSelectedItemId()==Constantes.PLAN){
+                        timeLog.setPhase("PLAN");
+                    }else if (spinner.getSelectedItemId()==Constantes.DLD){
+                        timeLog.setPhase("DLD");
+                    }else if (spinner.getSelectedItemId()==Constantes.CODE){
+                        timeLog.setPhase("CODE");
+                    }else if (spinner.getSelectedItemId()==Constantes.COMPILE){
+                        timeLog.setPhase("COMPILE");
+                    }else if (spinner.getSelectedItemId()==Constantes.UT){
+                        timeLog.setPhase("UT");
+                    }else if (spinner.getSelectedItemId()==Constantes.PM){
+                        timeLog.setPhase("PM");
+                    }
+                    timeLog.setStart(txtStart.getText().toString());
+                    timeLog.setStop(txt_stop.getText().toString());
+                    timeLog.setStop(txt_stop.getText().toString());
+                    timeLog.setId_project(id);
+                    timeLog.setDelta(Integer.parseInt(txt_delta.getText().toString()));
+                    if (datos.guardarNuevoTimeLog(timeLog)){
+                        Toast.makeText(getApplicationContext(), "phase Guardada", Toast.LENGTH_SHORT).show();
+                        limpiarCampos();
+                    }else {
+                        Toast.makeText(getApplicationContext(), "no se pudo guardar la phase", Toast.LENGTH_SHORT).show();
+                        limpiarCampos();
+                    }
 
+
+                }
+            }
+        });
+
+    }
+
+    private void limpiarCampos() {
+        txtStart.setText("");
+        txt_stop.setText("");
+        interruoption.getText().clear();
+        txt_delta.setText("");
+        descripcion.getText().clear();
+
+    }
+
+    private boolean validarCampos() {
+        if (spinner.getSelectedItemId()==0){
+            Toast.makeText(this, "debe seleccionar una phase", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (txtStart.getText().toString().isEmpty()){
+            Toast.makeText(this, "debe asignar una tiempo de inicio", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (txt_stop.getText().toString().isEmpty()){
+            Toast.makeText(this, "debe asignar una tiempo de fin", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     private void hacerCalculoFechas(Date dateStop, Date dateStart) {
@@ -66,10 +129,19 @@ public class TimeLogActivity extends AppCompatActivity {
             int delta= (int) (diferencia/minutos);
             txt_delta.setText(delta+"");
         }else {
-            diferencia=(dateStop.getTime()-dateStart.getTime());        }
+            diferencia=(dateStop.getTime()-dateStart.getTime());
+            int dif= (int) diferencia;
+            int interrupcion= Integer.parseInt(interruoption.getText().toString());
+            int del=(dif-interrupcion);
+            long segundos=1000;
+            long minutos=segundos*60;
+            int delta= (int) (del/minutos);
+            txt_delta.setText(delta+"");
+        }
     }
 
     private void inicializarElementos() {
+        datos=new Datos(this);
          txtStart=findViewById(R.id.txt_start);
          txt_stop=findViewById(R.id.txt_stop);
          txt_delta=findViewById(R.id.txt_delta);

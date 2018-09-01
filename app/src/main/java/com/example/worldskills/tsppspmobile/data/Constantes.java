@@ -22,12 +22,17 @@ public class Constantes implements BaseColumns {
         }};
 
 
-    public final static String PRJECTS="";
-    public final static String PRECTS="";
-    public final static String PROECTS="";
-    public final static String PROJCTS="";
-    public final static String PRJCTS="";
-    public final static String PRCTS="";
-    public final static String PRECS="";
-    public final static String PRJETS="";
+    public final static String TBL_TIME_LOG="time_log";
+    public final static String PHASE="phase";
+    public final static String START="start";
+    public final static String STOP="stop";
+    public final static String DELTA="delta";
+    public final static String ID_PROJECT="id_project";
+    public final static int PLAN=1;
+    public final static int DLD=2;
+    public final static int CODE=3;
+    public final static int COMPILE=4;
+    public final static int UT=5;
+    public final static int PM=6;
+
 }
