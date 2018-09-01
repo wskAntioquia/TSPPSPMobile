@@ -34,8 +34,10 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.btn_sumary:
                 intent=new Intent(this,ProjectPlanSummaryActivity.class);
                 break;
+
         }
         intent.putExtra("id",id);
         startActivity(intent);
+        finish();
     }
 }

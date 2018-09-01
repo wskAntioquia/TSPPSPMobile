@@ -159,7 +159,7 @@ public class TimeLogActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
         Bundle bundle=getIntent().getExtras();
         if (bundle!=null){
-            id=bundle.getInt("codigo");
+            id=bundle.getInt("id");
             txtStart.setText(id+"");
         }
     }

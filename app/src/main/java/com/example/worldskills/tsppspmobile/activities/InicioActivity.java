@@ -64,42 +64,6 @@ public class InicioActivity extends AppCompatActivity {
                 Intent intent=new Intent(getApplicationContext(),MenuActivity.class);
                 intent.putExtra("codigo",codig);
                 startActivity(intent);
-                finish();
-
-
-
-
-
-              /*  final CharSequence charSequence[]={"Time Log","Defect Log","Project plain Summary"};
-                AlertDialog.Builder builder=new AlertDialog.Builder(InicioActivity.this);
-                builder.setTitle("Menu");
-                builder.setItems(charSequence, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = null;
-                        if (charSequence[i].equals("Time Log")){
-
-                            startActivity(new Intent(getApplicationContext(),TimeLogActivity.class));
-                            intent=new Intent(getApplicationContext(),TimeLogActivity.class);
-                            int codig=cursor.getInt(cursor.getColumnIndex(Constantes._ID));
-                            intent.putExtra("codigo",codig);
-                            startActivity(intent);
-                        }else if (charSequence[i].equals("Defect Log")){
-
-                        }else if (charSequence[i].equals("Project plain Summary")){
-
-                        }
-
-
-                    }
-                }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog dialog=builder.create();
-                dialog.show();*/
             }
         });
 
