@@ -65,6 +65,7 @@ public class DefectLogActivity extends AppCompatActivity {
     restart=findViewById(R.id.button_restart);
     type=findViewById(R.id.spinner_type);
     injected=findViewById(R.id.spinner_injected);
+    btntiempo=findViewById(R.id.btn_tiempo_defect_log);
     removed=findViewById(R.id.spinner_removed);
     chronometer=findViewById(R.id.cronometro);
     ArrayAdapter<String>adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, Constantes.PHASES);
