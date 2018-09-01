@@ -49,12 +49,9 @@ public class MyAdapter extends BaseAdapter {
         }
 
         Projecto projecto= (Projecto) getItem(position);
-        holder.id.setText(projecto.getId());
+        holder.id.setText(projecto.getId()+"");
         holder.nombre.setText(projecto.getNombre());
         return convertView;
-
-
-
     }
     static class ViewHolder{
         TextView id,nombre;

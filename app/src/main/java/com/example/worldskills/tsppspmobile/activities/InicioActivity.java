@@ -1,16 +1,23 @@
 package com.example.worldskills.tsppspmobile.activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.worldskills.tsppspmobile.R;
 import com.example.worldskills.tsppspmobile.adapter.MyAdapter;
+import com.example.worldskills.tsppspmobile.data.Constantes;
 import com.example.worldskills.tsppspmobile.data.Datos;
 import com.example.worldskills.tsppspmobile.models.Projecto;
 
@@ -21,10 +28,12 @@ public class InicioActivity extends AppCompatActivity {
     ListView lista;
     Button guardar;
     TextInputEditText project;
-    MyAdapter adapter;
-    ArrayList<Projecto>projectos;
     Datos datos;
     Projecto projecto=new Projecto();
+    SimpleCursorAdapter adapter;
+    String camposBD[]={Constantes._ID,Constantes.NOMBRE};
+    int camposUI[]={R.id.content_id,R.id.content_nombre};
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +42,6 @@ public class InicioActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         inicializarElementos();
-        cargarDatos();
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,21 +62,55 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int i, long id) {
+                final CharSequence charSequence[]={"Time Log","Defect Log","Project plain Summary"};
+                AlertDialog.Builder builder=new AlertDialog.Builder(InicioActivity.this);
+                builder.setTitle("Menu");
+                builder.setItems(charSequence, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = null;
+                        if (charSequence[i].equals("Time Log")){
+
+                            startActivity(new Intent(getApplicationContext(),TimeLogActivity.class));
+                            intent=new Intent(getApplicationContext(),TimeLogActivity.class);
+                            int codig=cursor.getInt(cursor.getColumnIndex(Constantes._ID));
+                            intent.putExtra("codigo",codig);
+                            startActivity(intent);
+                        }else if (charSequence[i].equals("Defect Log")){
+
+                        }else if (charSequence[i].equals("Project plain Summary")){
+
+                        }
+
+
+                    }
+                }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog=builder.create();
+                dialog.show();
+            }
+        });
+
 
 
 
     }
 
-    private void cargarDatos() {
-
-    }
 
     private void inicializarElementos() {
         lista=findViewById(R.id.lista_projects);
         guardar=findViewById(R.id.btn_guardar_project);
         project=findViewById(R.id.name_project);
         datos=new Datos(this);
-        projectos=datos.listarProjectos();
-        adapter=new MyAdapter(R.layout.content_item_list,projectos);
+        cursor=datos.listarProjectos();
+        adapter=new SimpleCursorAdapter(this,R.layout.content_item_list,cursor,camposBD,camposUI);
+        lista.setAdapter(adapter);
     }
 }

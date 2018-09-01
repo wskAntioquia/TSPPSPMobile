@@ -40,19 +40,14 @@ public class Datos extends SQLiteOpenHelper {
         return db.insert(Constantes.TBL_PROJECTS,null,values)>0;
     }
 
-    public ArrayList<Projecto> listarProjectos(){
+    public Cursor listarProjectos(){
         db=getReadableDatabase();
-        ArrayList<Projecto> projects=new ArrayList<>();
-        Projecto project=null;
         cursor=db.rawQuery("SELECT * FROM " + Constantes.TBL_PROJECTS,null);
         if (cursor.moveToFirst()){
-            do {
-                project=new Projecto();
-                project.setId(cursor.getInt(cursor.getColumnIndex(Constantes._ID)));
-                project.setNombre(cursor.getString(cursor.getColumnIndex(Constantes.NOMBRE)));
-                projects.add(project);
-            }while (cursor.moveToNext());
+            return cursor;
+        }else{
+            return null;
         }
-        return projects;
+
     }
 }

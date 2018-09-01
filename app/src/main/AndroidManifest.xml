@@ -18,7 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TimeLogActivity"></activity>
+        <activity android:name=".activities.TimeLogActivity" />
+        <activity android:name=".activities.DefectLogActivity" />
+        <activity
+            android:name=".activities.ProjectPlanSummaryActivity"
+            android:label="@string/title_activity_project_plan_summary"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
