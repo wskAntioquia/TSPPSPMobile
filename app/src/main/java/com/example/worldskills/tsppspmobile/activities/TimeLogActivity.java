@@ -98,6 +98,7 @@ public class TimeLogActivity extends AppCompatActivity {
 
     }
 
+    //para limpiar los campos del furmulacio
     private void limpiarCampos() {
         txtStart.setText("");
         txt_stop.setText("");
@@ -107,6 +108,7 @@ public class TimeLogActivity extends AppCompatActivity {
 
     }
 
+    //validar que los campo no esten vacios
     private boolean validarCampos() {
         if (spinner.getSelectedItemId()==0){
             Toast.makeText(this, "debe seleccionar una phase", Toast.LENGTH_SHORT).show();
@@ -121,6 +123,7 @@ public class TimeLogActivity extends AppCompatActivity {
         return true;
     }
 
+    //calcilar las fechas de los botones que lo necesitan
     private void hacerCalculoFechas(Date dateStop, Date dateStart) {
         if (interruoption.getText().toString().isEmpty()  || interruoption.getText().toString().equals("0")){
             diferencia=(dateStop.getTime()-dateStart.getTime());
@@ -140,6 +143,7 @@ public class TimeLogActivity extends AppCompatActivity {
         }
     }
 
+    //inicializar los elementos de la interfaz grafica
     private void inicializarElementos() {
         datos=new Datos(this);
          txtStart=findViewById(R.id.txt_start);

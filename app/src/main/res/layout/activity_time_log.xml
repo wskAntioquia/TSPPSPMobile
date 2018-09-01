@@ -8,15 +8,19 @@
 
     <EditText
         android:id="@+id/txt_description"
-        android:layout_width="265dp"
-        android:layout_height="66dp"
+        android:layout_width="212dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/lista"
         android:ems="10"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/txt_delta" />
 
     <Spinner
@@ -56,7 +60,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="Delta"
+        android:text="Comments"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,10 +101,10 @@
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_marginEnd="164dp"
-        android:layout_marginLeft="162dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="164dp"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/textview"
         android:gravity="fill_vertical"
         android:paddingBottom="10dp"
@@ -111,7 +115,7 @@
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_stop" />
 
@@ -186,7 +190,7 @@
     <Button
         android:id="@+id/btn_guardar_phase"
         android:layout_width="393dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@drawable/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

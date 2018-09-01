@@ -12,7 +12,7 @@
         <activity
             android:name=".activities.InicioActivity"
             android:theme="@style/Inicio"
-            android:label="Proyectos"
+            android:label="TSP/PSP Mobile"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

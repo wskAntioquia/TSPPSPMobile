@@ -37,7 +37,8 @@
                     android:id="@+id/name_project"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nuevo Proyecto" />
+                    android:hint="Nuevo Proyecto"
+                    android:textColor="@color/letra" />
             </android.support.design.widget.TextInputLayout>
 
         </android.support.v7.widget.Toolbar>

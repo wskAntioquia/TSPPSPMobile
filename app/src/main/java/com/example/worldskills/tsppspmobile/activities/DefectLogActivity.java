@@ -24,7 +24,7 @@ public class DefectLogActivity extends AppCompatActivity {
     }
 
     private void inicializarElementos() {
-        tiempo,stop,start,reset;
+        String tiempo,stop,start,reset;
         Spinner type,injected,removed;
         Chronometer chronometer;
     }

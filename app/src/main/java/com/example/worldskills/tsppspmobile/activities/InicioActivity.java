@@ -108,7 +108,7 @@ public class InicioActivity extends AppCompatActivity {
 
     }
 
-
+//inicializar los elemento de la interfaz grafica
     private void inicializarElementos() {
         lista=findViewById(R.id.lista_projects);
         guardar=findViewById(R.id.btn_guardar_project);

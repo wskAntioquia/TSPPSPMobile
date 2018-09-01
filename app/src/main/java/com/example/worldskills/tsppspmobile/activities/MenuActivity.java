@@ -21,7 +21,7 @@ public class MenuActivity extends AppCompatActivity {
         }
 
     }
-
+//para ir a la proxima activity
     public void next(View view) {
         Intent intent=null;
         switch (view.getId()){
