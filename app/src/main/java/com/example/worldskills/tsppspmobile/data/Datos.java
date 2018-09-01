@@ -15,7 +15,7 @@ public class Datos extends SQLiteOpenHelper {
     SQLiteDatabase db;
     Cursor cursor;
     public Datos(Context context) {
-        super(context, "tsp_1", null, 1);
+        super(context, "tsp_2", null, 1);
     }
 
     @Override
@@ -25,7 +25,8 @@ public class Datos extends SQLiteOpenHelper {
                 Constantes.NOMBRE + " TEXT,"+
                 Constantes.TIEMPO + " INTEGER)";
 
-        String sql_time_log="CREATE TABLE " + Constantes.TBL_PROJECTS + "(" +
+
+        String sql_time_log="CREATE TABLE " + Constantes.TBL_TIME_LOG + "(" +
                 Constantes._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 Constantes.PHASE + " TEXT,"+
                 Constantes.START + " TEXT,"+
@@ -70,5 +71,16 @@ public class Datos extends SQLiteOpenHelper {
             return null;
         }
 
+    }
+
+    public int sumaPlan(){
+        db=getReadableDatabase();
+        cursor=db.rawQuery("SELECT SUM("+Constantes.PHASE+") FROM " +Constantes.TBL_TIME_LOG + " WHERE " +Constantes.PHASE+"=" +"'PLAN'",null);
+        if (cursor.moveToFirst()){
+             int totalPlan=cursor.getInt(0);
+             return totalPlan;
+        }else {
+            return 0;
+        }
     }
 }

@@ -21,37 +21,32 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.TimeLogActivity"
+        <activity
+            android:name=".activities.TimeLogActivity"
             android:label="Time Log"
-            android:parentActivityName=".activities.InicioActivity"
-            android:screenOrientation="portrait"      >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.InicioActivity"/>
-
-        </activity>
-
-        <activity android:name=".activities.DefectLogActivity"
-            android:parentActivityName=".activities.InicioActivity"
-            android:label="Defect Log"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.InicioActivity"/>
         </activity>
+
+        <activity
+            android:name=".activities.DefectLogActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
         <activity
             android:name=".activities.ProjectPlanSummaryActivity"
             android:label="Project Plan Summary"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait">
+
+        </activity>
 
         <activity
             android:name=".activities.MenuActivity"
             android:label="Menu"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="portrait">
 
         </activity>
+
     </application>
 
 </manifest>
