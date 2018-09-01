@@ -11,15 +11,30 @@ public class Constantes implements BaseColumns {
     public final static String TIEMPO="tiempo";
 
 
-        public final static ArrayList<String> PHASES=new ArrayList<String>(){{
-            add("Selecione una opcion");
-            add("PLAN");
-            add("DLD");
-            add("CODE");
-            add("COMPILE");
-            add("UT");
-            add("PM");
-        }};
+    public final static ArrayList<String> PHASES=new ArrayList<String>(){{
+        add("Selecione una opcion");
+        add("PLAN");
+        add("DLD");
+        add("CODE");
+        add("COMPILE");
+        add("UT");
+        add("PM");
+    }};
+    public final static ArrayList<String> TYPES=new ArrayList<String>(){{
+        add("Selecione una opcion");
+        add("Documentation");
+        add("Syntax");
+        add("Build");
+        add("Package");
+        add("Assigment");
+        add("Interface");
+        add("Checking");
+        add("Data");
+        add("Function");
+        add("System");
+        add("Environment");
+    }};
+
 
 
     public final static String TBL_TIME_LOG="time_log";
